@@ -40,7 +40,7 @@ const App = () => {
         setUniversities( searchResults )
     }
 
-    /* HENADLE SEARCH */
+    /* HANDLE SEARCH */
     const handleChange = e => {
         setSearch(e.target.value)
         filterSearch(e.target.value);
@@ -59,7 +59,7 @@ const App = () => {
     const paginate = ( pageNumber ) => setCurrentPage(pageNumber)
 
     return (
-        <main className="min-h-screen">
+        <main>
 
             {/* HEADER */}
             <header class="main-header">
@@ -87,9 +87,16 @@ const App = () => {
                 </div>
             </div>
 
-            <div className="container container--challenge mb-20">
-                {/* CATALOG */}
-                <Catalog universities={ currentUniversities } loading={ loading }/>
+            <div className="container container--challenge mb-20 min-h-screen">
+
+                { universities.length > 0 ? 
+                    /* CATALOG */
+                    <Catalog universities={ currentUniversities } loading={ loading }/>
+                :
+                    <div className="opacity-50 text-center mt-20">
+                        No hay resultado intente con otro nombre
+                    </div>
+                }
 
                 {/* PAGINATION */}
                 <Pagination itemsPerPage={ itemsPerPage } totalItems={ universities.length } currentPage={ currentPage } paginate={ paginate }></Pagination>
