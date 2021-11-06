@@ -1,20 +1,49 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
+
+/* IMAGES */
+import { default as logo } from '../src/assets/images/helpers/icon-book.svg'
+
+/* COMPONENTS */
 import Catalog from "./ui/components/Catalog";
 import Pagination from "./ui/components/Pagination";
+import Search from "./ui/components/Search";
 
 const App = () => {
+    const [dataUniversities, setDataUniversities] = useState([]);
     const [universities, setUniversities] = useState([]);
+    const [search, setSearch] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const [universitiesPerPage] = useState(21);
+    const [itemsPerPage] = useState(21);
 
+    /* GET UNIVERSITIES */
     const fetchUniversities = async () => {
-        const res = await fetch('http://universities.hipolabs.com/search?country=Mexico')
+        await axios.get('http://universities.hipolabs.com/search?country=Mexico')
+        .then( res => {
+            setUniversities(res.data)
+            setDataUniversities(res.data)
+            setLoading(false)
+        }).catch( error => {
+            console.log(error);
+        })
+    }
 
-        const newUniversities = await res.json();
+    /* FILTER SEARCH */
+    const filterSearch = ( searchTerm ) => {
+        var searchResults = dataUniversities.filter(( element ) => {
+            if ( element.name.toString().toLowerCase().includes( searchTerm.toLowerCase() )) {
+                return element
+            }
+        })
 
-        setUniversities(newUniversities);
-        setLoading(false)
+        setUniversities( searchResults )
+    }
+
+    /* HENADLE SEARCH */
+    const handleChange = e => {
+        setSearch(e.target.value)
+        filterSearch(e.target.value);
     }
 
     useEffect(() => {
@@ -22,15 +51,29 @@ const App = () => {
     }, []);
 
     // GET CURRENT UNIVERSITIES
-    const indexOfLast = currentPage * universitiesPerPage;
-    const indexOfFirst = indexOfLast - universitiesPerPage;
+    const indexOfLast = currentPage * itemsPerPage;
+    const indexOfFirst = indexOfLast - itemsPerPage;
     const currentUniversities = universities.slice( indexOfFirst, indexOfLast )
 
     // CHANGE PAGE
     const paginate = ( pageNumber ) => setCurrentPage(pageNumber)
 
     return (
-        <main>
+        <main className="min-h-screen">
+
+            {/* HEADER */}
+            <header class="main-header">
+                <div class="container container--challenge h-full flex items-center font-bold">
+
+                    <div class="text-2xl text-primary-1 flex">
+                        <img class="-mt-1 mr-4" width={44} src={ logo } />
+                        Universities of mexico
+                    </div>
+
+                    {/* SEARCH */}
+                    <Search search={ search } handleChange={ handleChange }/>
+                </div>
+            </header>
 
             {/* HERO */}
             <div className="home-hero bg-primary-2 h-64 pt-16 mb-8">
@@ -49,8 +92,15 @@ const App = () => {
                 <Catalog universities={ currentUniversities } loading={ loading }/>
 
                 {/* PAGINATION */}
-                <Pagination itemsPerPage={ universitiesPerPage } totalItems={ universities.length } currentPage={ currentPage } paginate={ paginate }></Pagination>
+                <Pagination itemsPerPage={ itemsPerPage } totalItems={ universities.length } currentPage={ currentPage } paginate={ paginate }></Pagination>
             </div>
+
+            {/* FOOTER */}
+            <footer class="main-footer bg-primary-2 py-4 grid place-items-center">
+                <div class="text-sm text-white font-medium uppercase">
+                    Front-end coding challenge - 2021
+                </div>
+            </footer>
         </main>
     );
 }
