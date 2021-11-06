@@ -6,15 +6,15 @@ import University from "./ui/components/university";
 const App = () => {
     const [universities, setUniversities] = useState([]);
 
+    const fetchUniversities = async () => {
+        const res = await fetch('http://universities.hipolabs.com/search?country=Mexico')
+
+        const newUniversities = await res.json();
+
+        setUniversities(newUniversities);
+    }
+
     useEffect(() => {
-        const fetchUniversities = async () => {
-            const res = await fetch('http://universities.hipolabs.com/search?country=Mexico')
-
-            const newUniversities = await res.json();
-
-            setUniversities(newUniversities);
-        }
-
         fetchUniversities()
     }, []);
 
@@ -22,35 +22,29 @@ const App = () => {
         <main>
 
             {/* HERO */}
-            <div class="home-hero bg-primary-2 h-64 pt-16">
-                <div class="container container--challenge text-white h-full flex flex-col items-center place-content-center">
-                    <h2 class="text-4xl font-black uppercase mb-5">
+            <div className="home-hero bg-primary-2 h-64 pt-16">
+                <div className="container container--challenge text-white h-full flex flex-col items-center place-content-center">
+                    <h2 className="text-4xl font-black uppercase mb-5">
                         Front-end coding challenge
                     </h2>
-                    <p class="text-lg">
-                        ¡{ universities.length } universities for you!
+                    <p className="text-lg">
+                        ¡{ universities.length } Universities for you!
                     </p>
                 </div>
             </div>
-            <div class="hero-ribbon bg-white py-5 mb-5">
-                <div class="container container--challenge">
+            <div className="hero-ribbon bg-white py-5 mb-8">
+                <div className="container container--challenge">
 
                 </div>
             </div>
 
             {/* LIST */}
-            <div class="container container--challenge mb-20 bordev">
-                {/* <DirectoryList offerList={fetchOffersList()} />
-                <p>
-                    lorem
-                </p> */}
-                <div class="offer-grid">
+            <div className="container container--challenge mb-20">
+                <div className="offer-grid">
                     {
                         universities.map( university => {
                             return (
-                                <p key={ university.id }>
-                                    { university.name }
-                                </p>
+                                <University data={ university }/>
                             )
                         })
                     }

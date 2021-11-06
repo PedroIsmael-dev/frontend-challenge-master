@@ -10,14 +10,5 @@
     height: 64px;
     transition: all 200ms ease;
     box-shadow: 0 4px 8px -3px rgb(0 0 0 / 14%);
-
-    &--scroll-down{
-        background-color: #fff;
-        box-shadow: 0 4px 8px -3px rgb(0 0 0 / 14%);
-        backdrop-filter: blur(20px);
-
-        @include mq.media-up(xl){
-            height: 72px;
-        }
-    }
+    z-index: 10;
 }
