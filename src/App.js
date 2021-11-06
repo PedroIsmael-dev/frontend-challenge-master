@@ -45,7 +45,6 @@ const App = () => {
             </div>
 
             <div className="container container--challenge mb-20">
-
                 {/* CATALOG */}
                 <Catalog universities={ currentUniversities } loading={ loading }/>
 

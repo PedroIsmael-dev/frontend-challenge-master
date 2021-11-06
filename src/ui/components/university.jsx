@@ -10,12 +10,15 @@ const University = ( {data} ) => {
                 <div className="university-item-badge text-white text-sm absolute top-0 right-0 py-1 px-2 rounded -mt-4 mr-4 bg-orange-1">
                     { data.country }
                 </div>
-                <div className="text-lg font-medium mb-2">
+                <div className="text-lg font-medium">
                     { data.name }
                 </div>
-                <div className="text-sm text-link">
-                    { data.domains }
-                </div>
+
+                { data.domains.map( domain => (
+                    <div className="text-sm text-link mt-2">
+                        { domain }
+                    </div>
+                ))}
             </div>
             
         </a>
