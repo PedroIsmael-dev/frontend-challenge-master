@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Coding challenge</title>
+
+        <!-- Meta tags -->
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1 " />
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    </head>
+
+    <body class="min-h-full">
+        <header class="main-header">
+            <div class="container container--challenge h-full flex items-center font-bold">
+
+                <!-- TITLE -->
+                <div class="text-2xl text-primary-1 flex">
+                    <img width="44px" class="-mt-1 mr-4" src="src/assets/images/icon-book.svg" alt="">
+                    Universities of mexico
+                </div>
+
+                <!-- SEARCH -->
+                <div class="relative flex flex-wrap items-stretch ml-auto">
+                    <span class="z-10 h-full absolute grid place-items-center bg-transparent rounded text-base items-center justify-center w-11">
+                      <img width="16px" src="src/assets/images/icon-search.svg" alt="">
+                    </span>
+                    <input type="text" placeholder="Search" class="px-2 py-2 placeholder-gray-400 text-gray-600 relative bg-white bg-white rounded text-sm border border-gray-400 outline-none focus:outline-none focus:ring w-full pl-10"/>
+                  </div>
+            </div>
+        </header>
+        <!-- This is the root element for React -->
+        <div id="root"></div>
+        <script src="./src/index.js"></script>
+    </body>
+</html>

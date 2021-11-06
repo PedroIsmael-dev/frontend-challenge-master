@@ -1,0 +1,8 @@
+@use '../tools/config_mixins_mq' as mq;
+@use '../settings/vars/colors' as c;
+
+.text-{
+    &primary-1{
+        color: c.$primary-1;
+    }
+}

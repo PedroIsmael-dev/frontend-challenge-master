@@ -1,0 +1,9 @@
+@use '../tools/config_mixins_mq' as mq;
+@use '../settings/vars/colors' as c;
+
+.university-item{
+    height: 300px;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 3px 3px rgba($color: #000000, $alpha: 0.2);
+}

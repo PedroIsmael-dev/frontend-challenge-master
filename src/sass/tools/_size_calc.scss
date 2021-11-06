@@ -1,0 +1,7 @@
+@mixin calc-vw($prop, $s) {
+    #{$prop}: calc(( #{$s} / 1920 ) * 100vw);
+}
+
+@mixin calc-vh($prop, $s) {
+    #{$prop}: calc(( #{$s} / 1080 ) * 100vh);
+}

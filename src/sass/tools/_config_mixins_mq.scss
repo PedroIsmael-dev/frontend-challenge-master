@@ -1,0 +1,61 @@
+/*
+    ** CONFIG/MIXINS MQ **
+*/
+
+/*
+    ** MEDIA BREAKPOINTS **
+    ** Define the mediaquery necessary for your project
+
+    ** You can add, delete, or change the value and name of the key in the $ brackpoints map, also  you can overwrite the $breakpoints map for rewrite the keys
+
+
+        ** EXAMPLE
+
+        $breakpoints: (
+            mobile      :   375px,
+            tablet      :   768px,
+            laptop      :   1199px,
+            desktop     :   1460px,
+        );
+*/
+
+$breakpoints: (
+    sm      :   540px,      // Default value
+    md      :   768px,      // Default value
+    lg      :   1024px,     // Default value
+    xl      :   1280px,     // Default value
+    xxl     :   1580px,     // Default value
+);
+
+
+/*
+    ** Media mixin from $breakpoints map
+*/
+@mixin media($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: calc(#{map-get($breakpoints, $breakpoint)} - 1px)) {
+            @content;
+        }
+    }
+}
+
+/*
+    ** Media-up mixin from $breakpoints map
+    ** Use of media-up
+    ** You can use these media mixin for you self scss files, the size of mediaquery is accord the values of $breackpoint map
+
+            **Example
+                .text{
+                    color: blue;
+                    @include media-up(desktop($breakpoint map value)){
+                        color: plum;
+                    }
+                }
+*/
+@mixin media-up($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+            @content;
+        }
+    }
+}

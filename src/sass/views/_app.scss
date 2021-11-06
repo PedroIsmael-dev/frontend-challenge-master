@@ -1,0 +1,9 @@
+@use '../tools/config_mixins_mq' as mq;
+@use '../tools/size_calc' as sc;
+@use '../settings/vars/colors' as c;
+
+.offer-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
+}

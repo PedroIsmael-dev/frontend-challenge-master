@@ -1,0 +1,14 @@
+@use '../settings/vars/colors' as c;
+
+/*
+    **  BACKGROUND
+*/
+.bg-{
+    &primary-1{
+        background-color: c.$primary-1;
+    }
+
+    &primary-2{
+        background-color: c.$primary-2;
+    }
+}
