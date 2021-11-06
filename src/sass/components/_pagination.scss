@@ -1,0 +1,46 @@
+@use '../tools/config_mixins_mq' as mq;
+@use '../settings/vars/colors' as c;
+
+.pagination{
+    width: fit-content;
+    
+    &-list{
+        display: flex;
+        border: 1px solid #9CA3AF;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    &-item{
+        height: 36px;
+        width: 36px;
+
+        &:not(:last-child){
+            border-right: 1px solid #9CA3AF;
+        }
+    }
+
+    &-link{
+        height: 100%;
+        width: 100%;
+        flex: none;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        background-color: #fff;
+        transition: all 200ms ease;
+    }
+
+    &-link.active{
+        background-color: c.$secondary-1;
+        color: #fff;
+    }
+
+    @include mq.media-up(xl) {
+        &-link:hover{
+            background-color: c.$secondary-1;
+            color: #fff;
+        }
+    }
+}

@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import Catalog from "./ui/components/Catalog";
+import Pagination from "./ui/components/Pagination";
 
 const App = () => {
     const [universities, setUniversities] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [universitiesPerPage] = useState(21);
 
     const fetchUniversities = async () => {
         const res = await fetch('http://universities.hipolabs.com/search?country=Mexico')
@@ -17,6 +20,14 @@ const App = () => {
     useEffect(() => {
         fetchUniversities()
     }, []);
+
+    // GET CURRENT UNIVERSITIES
+    const indexOfLast = currentPage * universitiesPerPage;
+    const indexOfFirst = indexOfLast - universitiesPerPage;
+    const currentUniversities = universities.slice( indexOfFirst, indexOfLast )
+
+    // CHANGE PAGE
+    const paginate = ( pageNumber ) => setCurrentPage(pageNumber)
 
     return (
         <main>
@@ -33,9 +44,13 @@ const App = () => {
                 </div>
             </div>
 
-            {/* LIST */}
             <div className="container container--challenge mb-20">
-                <Catalog universities={ universities } loading={ loading }/>
+
+                {/* CATALOG */}
+                <Catalog universities={ currentUniversities } loading={ loading }/>
+
+                {/* PAGINATION */}
+                <Pagination itemsPerPage={ universitiesPerPage } totalItems={ universities.length } currentPage={ currentPage } paginate={ paginate }></Pagination>
             </div>
         </main>
     );

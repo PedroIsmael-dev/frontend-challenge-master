@@ -13,7 +13,7 @@ const Catalog = ({ universities, loading }) => {
     }
 
     return (
-        <div className="offer-grid">
+        <div className="offer-grid mb-12">
             {
                 universities.map( university => {
                     return (

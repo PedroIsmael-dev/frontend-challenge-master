@@ -1,6 +1,11 @@
 @use 'tools/config_mixins_mq' as mq;
 @use 'settings/vars/colors' as c;
 
+html,
+body{
+    scroll-behavior: smooth;
+}
+
 @include mq.media-up(xl){
     * {
         ::-webkit-scrollbar {
