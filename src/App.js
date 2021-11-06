@@ -42,6 +42,7 @@ const App = () => {
 
     /* HANDLE SEARCH */
     const handleChange = e => {
+        setCurrentPage(1)
         setSearch(e.target.value)
         filterSearch(e.target.value);
     }
@@ -89,14 +90,8 @@ const App = () => {
 
             <div className="container container--challenge mb-20 min-h-screen">
 
-                { universities.length > 0 ? 
-                    /* CATALOG */
-                    <Catalog universities={ currentUniversities } loading={ loading }/>
-                :
-                    <div className="opacity-50 text-center mt-20">
-                        No hay resultado intente con otro nombre
-                    </div>
-                }
+                {/* CATALOG */}
+                <Catalog universities={ currentUniversities } loading={ loading }/>
 
                 {/* PAGINATION */}
                 <Pagination itemsPerPage={ itemsPerPage } totalItems={ universities.length } currentPage={ currentPage } paginate={ paginate }></Pagination>

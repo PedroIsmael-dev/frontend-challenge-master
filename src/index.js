@@ -4,8 +4,19 @@ import App from "./App";
 /* STYLES */
 import './sass/app.scss';
 
-function ReactRoot() {
-    return <App />;
+const loader = document.querySelector('.loader');
+
+const hideLoader = () => loader.classList.add('loader--hide');
+
+const ReactRoot = ({ hideLoader }) => {
+    useEffect(() => {
+        hideLoader()
+    }, []);
+    
+    return <App/>; 
 }
 
-ReactDOM.render(<ReactRoot />, document.getElementById("root"));
+// SIMULATE RENDER
+setTimeout(() => 
+    ReactDOM.render(<ReactRoot hideLoader={hideLoader}/>, document.getElementById('root'))
+, 1000);
