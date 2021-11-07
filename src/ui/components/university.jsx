@@ -6,7 +6,7 @@ const University = ( {data} ) => {
         <a className="university-item" href={ data.web_pages } target="_blank">
             <div className="university-item-img bg-auto bg-no-repeat bg-center rounded sm:rounded-b-none rounded-t-md" style={{backgroundImage: `url(${ testUBg })`}}></div>
 
-            <div className="relative p-4 py-7 sm:pt-5">
+            <div className="relative p-4 py-7 sm:pt-5 sm:pb-4">
                 <div className="university-item-badge text-white text-xs md:text-sm absolute top-0 right-0 py-1 px-2 rounded -mt-2 sm:-mt-4 mr-4 bg-orange-1">
                     { data.country }
                 </div>
