@@ -1,2 +1,40 @@
 @use '../tools/config_mixins_mq' as mq;
 @use '../settings/vars/colors' as c;
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 16px;
+    border: 1px solid;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    line-height: 1.5;
+    transition: all 150ms;
+    border-radius: 4px;
+    width: fit-content;
+    font-size: 1rem;
+    color: #333333;
+    background-color: #F0F0F0;
+    border-color: #F0F0F0;
+
+    &--secondary{
+        border-color: c.$secondary-1;
+        background-color: c.$secondary-1;
+        color: #fff;
+
+        @include mq.media-up(xl){
+            &:hover{
+                transform: translateY(-4px);
+                background-color: #fff;
+                color: c.$secondary-1;
+                box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
+            }
+
+            &:hover img{
+                filter: brightness(0) saturate(100%) invert(62%) sepia(14%) saturate(1931%) hue-rotate(124deg) brightness(99%) contrast(85%);
+            }
+        }
+    }
+}

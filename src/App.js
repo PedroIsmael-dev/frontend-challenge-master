@@ -3,6 +3,7 @@ import axios from "axios";
 
 /* SVG */
 import { default as logo } from '../src/assets/images/helpers/icon-book.svg'
+import { default as iconFilter } from '../src/assets/images/helpers/icon-filter.svg'
 
 /* COMPONENTS */
 import Catalog from "./ui/components/Catalog";
@@ -47,6 +48,27 @@ const App = () => {
         filterSearch(e.target.value);
     }
 
+    /* SORT ARRAY - A - Z */
+    const sortArray = () => {
+        const sorted = [...universities].sort(( a, b ) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+
+            if ( nameA < nameB ) {
+                return -1
+            }
+
+            if ( nameA > nameB ) {
+                return 1
+            }
+
+            return 0
+        })
+
+        setUniversities(sorted)
+        setCurrentPage(1)
+    }
+
     useEffect(() => {
         fetchUniversities()
     }, []);
@@ -79,7 +101,7 @@ const App = () => {
             </header>
 
             {/* HERO */}
-            <div className="home-hero bg-primary-2 h-64 pt-16 mb-8">
+            <div className="home-hero bg-primary-2 h-64 pt-16">
                 <div className="container container--challenge text-white h-full flex flex-col items-center place-content-center">
                     <h2 className="text-2xl xl:text-4xl text-center font-black uppercase mb-5">
                         Front-end coding challenge
@@ -89,6 +111,19 @@ const App = () => {
                     </p>
                 </div>
             </div>
+
+            {/* RIBBON ACTIONS */}
+            <div className="bg-white py-4 mb-8">
+                <div className="container container--challenge">
+
+                    {/* BTN SORT */}
+                    <button className="btn btn--secondary ml-auto" onClick={() => sortArray()}>
+                        Sort by letter
+                        <img className="ml-3" width={18} src={ iconFilter } />
+                    </button>
+                </div>
+            </div>
+
 
             <div className="container container--challenge mb-20 min-h-screen">
 
