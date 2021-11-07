@@ -10,7 +10,7 @@ const University = ( {data} ) => {
                 <div className="university-item-badge text-white text-xs md:text-sm absolute top-0 right-0 py-1 px-2 rounded -mt-2 sm:-mt-4 mr-4 bg-orange-1">
                     { data.country }
                 </div>
-                <div className="university-item-title text-white sm:text-current text-lg font-medium">
+                <div className="university-item-title text-white sm:text-current underline xl:no-underline text-lg font-medium">
                     { data.name }
                 </div>
 
