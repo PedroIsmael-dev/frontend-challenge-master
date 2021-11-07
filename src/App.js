@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 /* SVG */
-import { default as logo } from '../src/assets/images/helpers/icon-book.svg'
+import { default as logo } from '../src/assets/images/layout/logo.svg'
 import { default as iconFilter } from '../src/assets/images/helpers/icon-filter.svg'
 
 /* COMPONENTS */
@@ -86,13 +86,11 @@ const App = () => {
 
             {/* HEADER */}
             <header class="main-header">
-                <div class="container container--challenge h-full flex items-center font-bold">
+                <div class="container container--challenge h-full flex flex-col sm:flex-row sm:items-center font-bold">
 
-                    <div class="text-xl md:text-2xl text-primary-1 flex">
-                        <img class="-mt-1 mr-4" width={44} src={ logo } />
-                        <span className="hidden sm:block">
-                            Universities of mexico
-                        </span>
+                    <div class="text-xl md:text-2xl text-primary-1 flex mb-4 sm:mb-0">
+                        <img class="-mt-1 mr-4" width={44} src={ logo } alt="logo challenge"/>
+                        Universities of mexico
                     </div>
 
                     {/* SEARCH */}
@@ -101,7 +99,7 @@ const App = () => {
             </header>
 
             {/* HERO */}
-            <div className="home-hero bg-gradient-blue h-64 pt-16">
+            <div className="home-hero bg-gradient-blue h-80 sm:h-64 pt-24 sm:pt-16">
                 <div className="container container--challenge text-white h-full flex flex-col items-center place-content-center">
                     <h2 className="text-2xl xl:text-4xl text-center font-black uppercase mb-5">
                         Front-end coding challenge
@@ -119,11 +117,10 @@ const App = () => {
                     {/* BTN SORT */}
                     <button className="btn btn--secondary ml-auto" onClick={() => sortArray()}>
                         Sort by letter
-                        <img className="ml-3" width={18} src={ iconFilter } />
+                        <img className="ml-3" width={18} src={ iconFilter } alt="icon filter"/>
                     </button>
                 </div>
             </div>
-
 
             <div className="container container--challenge mb-20 min-h-screen">
 
@@ -143,7 +140,7 @@ const App = () => {
 
             {/* FOOTER */}
             <footer class="main-footer bg-gradient-blue py-4 grid place-items-center">
-                <div class="text-sm text-white font-medium uppercase">
+                <div class="text-xs sm:text-sm text-white font-medium uppercase">
                     Front-end coding challenge 2021 - Pedro Ismael
                 </div>
             </footer>

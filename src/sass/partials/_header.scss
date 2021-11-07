@@ -7,13 +7,18 @@
     top: 0;
     left: 0;
     background-color: rgba($color: #fff, $alpha: 0.9);
-    height: 64px;
     transition: all 200ms ease;
     box-shadow: 0 4px 8px -3px rgb(0 0 0 / 14%);
     backdrop-filter: blur(20px);
     z-index: 10;
+    padding: 12px 0;
 
     @-moz-document url-prefix() {
         background-color: #fff;
+    }
+
+    @include mq.media-up(sm){
+        padding: 0;
+        height: 64px;
     }
 }

@@ -2,9 +2,6 @@
 @use '../settings/vars/colors' as c;
 
 .text-{
-    &link{
-        color: #0d6efd;
-    }
     &primary-1{
         color: c.$primary-1;
     }
