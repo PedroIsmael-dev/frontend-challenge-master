@@ -7,8 +7,10 @@
     &primary-1{
         background-color: c.$primary-1;
     }
-
     &primary-2{
         background-color: c.$primary-2;
+    }
+    &gradient-blue{
+        background-image: linear-gradient(to top right, c.$primary-2, c.$primary-1);
     }
 }

@@ -82,7 +82,7 @@ const App = () => {
     const paginate = ( pageNumber ) => setCurrentPage(pageNumber)
 
     return (
-        <main>
+        <main className="main-app">
 
             {/* HEADER */}
             <header class="main-header">
@@ -101,7 +101,7 @@ const App = () => {
             </header>
 
             {/* HERO */}
-            <div className="home-hero bg-primary-2 h-64 pt-16">
+            <div className="home-hero bg-gradient-blue h-64 pt-16">
                 <div className="container container--challenge text-white h-full flex flex-col items-center place-content-center">
                     <h2 className="text-2xl xl:text-4xl text-center font-black uppercase mb-5">
                         Front-end coding challenge
@@ -142,9 +142,9 @@ const App = () => {
             </div>
 
             {/* FOOTER */}
-            <footer class="main-footer bg-primary-2 py-4 grid place-items-center">
+            <footer class="main-footer bg-gradient-blue py-4 grid place-items-center">
                 <div class="text-sm text-white font-medium uppercase">
-                    Front-end coding challenge - 2021
+                    Front-end coding challenge 2021 - Pedro Ismael
                 </div>
             </footer>
         </main>
