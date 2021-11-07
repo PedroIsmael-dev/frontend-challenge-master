@@ -4,6 +4,15 @@
 
 .offer-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 32px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+
+    @include mq.media-up(sm){
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mq.media-up(lg){
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 32px;
+    }
 }

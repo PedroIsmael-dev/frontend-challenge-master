@@ -15,11 +15,9 @@ const Catalog = ({ universities, loading }) => {
     return (
         <div className="offer-grid mb-12">
             {
-                universities.map( university => {
-                    return (
-                        <University data={ university }/>
-                    )
-                })
+                universities.map( university => (
+                    <University data={ university }/>
+                ))
             }
         </div>
     );

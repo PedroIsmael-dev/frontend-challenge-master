@@ -20,7 +20,11 @@
     transition: all 200ms ease;
 
     &-img{
-        height: 180px;
+        height: 132px;
+
+        @include mq.media-up(xl){
+            height: 180px;
+        }
     }
 
     &-badge{

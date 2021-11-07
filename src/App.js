@@ -66,9 +66,11 @@ const App = () => {
             <header class="main-header">
                 <div class="container container--challenge h-full flex items-center font-bold">
 
-                    <div class="text-2xl text-primary-1 flex">
+                    <div class="text-xl md:text-2xl text-primary-1 flex">
                         <img class="-mt-1 mr-4" width={44} src={ logo } />
-                        Universities of mexico
+                        <span className="hidden sm:block">
+                            Universities of mexico
+                        </span>
                     </div>
 
                     {/* SEARCH */}
@@ -79,10 +81,10 @@ const App = () => {
             {/* HERO */}
             <div className="home-hero bg-primary-2 h-64 pt-16 mb-8">
                 <div className="container container--challenge text-white h-full flex flex-col items-center place-content-center">
-                    <h2 className="text-4xl font-black uppercase mb-5">
+                    <h2 className="text-2xl xl:text-4xl text-center font-black uppercase mb-5">
                         Front-end coding challenge
                     </h2>
-                    <p className="text-lg">
+                    <p className="xl:text-lg">
                         ¡{ universities.length } Universities for you!
                     </p>
                 </div>
