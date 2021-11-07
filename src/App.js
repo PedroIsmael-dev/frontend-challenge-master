@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-/* IMAGES */
+/* SVG */
 import { default as logo } from '../src/assets/images/helpers/icon-book.svg'
 
 /* COMPONENTS */
@@ -92,9 +92,16 @@ const App = () => {
 
                 {/* CATALOG */}
                 <Catalog universities={ currentUniversities } loading={ loading }/>
-
+                
                 {/* PAGINATION */}
                 <Pagination itemsPerPage={ itemsPerPage } totalItems={ universities.length } currentPage={ currentPage } paginate={ paginate }></Pagination>
+
+                {/* NOT FOUND */}
+                { universities.length === 0 && 
+                    <p className="opacity-60 text-center mt-20"> 
+                        There are no items for this search, try again
+                    </p>
+                }
             </div>
 
             {/* FOOTER */}
